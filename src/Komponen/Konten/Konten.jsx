@@ -17,13 +17,13 @@ const Konten = () => {
 
 
     //import dropdown Kateogri Berita dari 
-    const API_KEY = '1bd110aff3464ecf82b4c5890acdad2a'
-    const HEADLINES_NEWS = "https://gnews.io/api/v4/top-headlines?token=74dfc718be3afd00c2c6c3e9527faf9f&lang=en"
-    const SPORTS_NEWS = "https://gnews.io/api/v4/search?q=example&token=74dfc718be3afd00c2c6c3e9527faf9f&lang=en"
-    const BUSINESS_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=business&apiKey=' + API_KEY
-    const ENTERTAINMENT_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=entertainment&apiKey=' + API_KEY
-    const HEALTH_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=' + API_KEY
-    const TECHNOLOGY_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=technology&apiKey=' + API_KEY
+    
+    const HEADLINES_NEWS = "https://gnews.io/api/v4/top-headlines?country=us&token=baed3bfb433758a85429ed34e72d5417"
+    const SPORTS_NEWS = "https://gnews.io/api/v4/search?q=sports&country=us&token=baed3bfb433758a85429ed34e72d5417"
+    const BUSINESS_NEWS = "https://gnews.io/api/v4/search?q=business&country=us&token=baed3bfb433758a85429ed34e72d5417"
+    const ENTERTAINMENT_NEWS = "https://gnews.io/api/v4/search?q=entertainment&country=us&token=baed3bfb433758a85429ed34e72d5417"
+    const HEALTH_NEWS = "https://gnews.io/api/v4/search?q=health&country=us&token=baed3bfb433758a85429ed34e72d5417"
+    const TECHNOLOGY_NEWS = "https://gnews.io/api/v4/search?q=technology&country=us&token=baed3bfb433758a85429ed34e72d5417"
     
 
 
@@ -194,8 +194,8 @@ const Konten = () => {
                             return (
                                 <div className="col-3" >
                                     <div className="m-3">
-                                        <div className="Card p-4 " style={{ height: '750px', width: '300px', border: '15px solid #07A8CB' }}>
-                                            <img src={value.Image} className="card-img-top mb-4 ml-3" style={{ height: '200px', width: '220px' }} alt="..." />
+                                        <div className="Card p-4 cardnya" style={{ height: '750px', width: '300px', border: '15px solid #07A8CB' }}>
+                                            <img src={value.image} className="card-img-top mb-4 ml-3" style={{ height: '200px', width: '220px' }} alt="..." />
                                             <div className="Card-Body" >
                                                 <h5 className="Card-Title text-warning " >{value.title}</h5>
                                                 <h6 className="mt-2 mb-2 Card-Subtitle text-primary">{value.publishedAt}</h6>
