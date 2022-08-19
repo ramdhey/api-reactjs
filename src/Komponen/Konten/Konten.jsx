@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { PureComponent } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Konten.css';
 
@@ -9,128 +9,32 @@ import Nav from 'react-bootstrap/Nav'
 
 
 const Konten = () => {
+    const API = 'https://api.currentsapi.services/v1/latest-news?' +
+    'language=us&' +
+    'apiKey=qc60qk1fcfLoeLdu7rR8c2nbYxLic_DlPkZ0kSPlL8tElSgd';
 
-    const [data, setData] = useState([])
-    const [kategori, setKategori] = useState('')
-
-   
-
-
-    //import dropdown Kateogri Berita dari 
-    const API_KEY = '1bd110aff3464ecf82b4c5890acdad2a'
-    const HEADLINES_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&apiKey=' + API_KEY
-    const SPORTS_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=' + API_KEY
-    const BUSINESS_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=business&apiKey=' + API_KEY
-    const ENTERTAINMENT_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=entertainment&apiKey=' + API_KEY
-    const HEALTH_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=' + API_KEY
-    const TECHNOLOGY_NEWS = 'https://newsapi.org/v2/top-headlines?country=id&category=technology&apiKey=' + API_KEY
     
 
+    // componentDidMount() {
+    //     axios.get(API + '&limit=10').then(response => {
+    //         this.setState({ konten: response.data.news });
+    //     }
+
+    //     )
+
+    // componentDidMount() {
+    //     axios.get(API).then(response => {
+    //         this.setState({ konten: response.data.news });
+    //     }
+    //     )
+    // }
 
 
 
 
-    useEffect(() => {
-        if (kategori === 'headline') {
+    return (
 
-            axios.get(HEADLINES_NEWS)
-                .then(res => {
-                    setData(res.data.articles)
-                }).catch(err => {
-                    console.log(err)
-                }).finally(() => {
-                    setKategori('')
-                })
-        } else if (kategori === 'sport') {
-            axios.get(SPORTS_NEWS)
-                .then(res => {
-                    setData(res.data.articles)
-                }).catch(err => {
-                    console.log(err)
-                }).finally(() => {
-                    setKategori('')
-                })
-        } else if (kategori === 'business') {
-            axios.get(BUSINESS_NEWS)
-                .then(res => {
-                    setData(res.data.articles)
-                }).catch(err => {
-                    console.log(err)
-                }).finally(() => {
-                    setKategori('')
-                })
-        } else if (kategori === 'entertainment') {
-            axios.get(ENTERTAINMENT_NEWS)
-                .then(res => {
-                    setData(res.data.articles)
-                }).catch(err => {
-                    console.log(err)
-                }).finally(() => {
-                    setKategori('')
-                })
-        } else if (kategori === 'health') {
-            axios.get(HEALTH_NEWS)
-                .then(res => {
-                    setData(res.data.articles)
-                }).catch(err => {
-                    console.log(err)
-                }).finally(() => {
-                    setKategori('')
-                })
-        } else if (kategori === 'technology') {
-            axios.get(TECHNOLOGY_NEWS)
-                .then(res => {
-                    setData(res.data.articles)
-                }).catch(err => {
-                    console.log(err)
-                }).finally(() => {
-                    setKategori('')
-                })
-        }
-    }, [kategori])
-
-    //buat default tampilan HEADLINE NEWS
-    useEffect(() => {
-        axios.get(HEADLINES_NEWS)
-            .then(res => {
-                setData(res.data.articles)
-            }).catch(err => {
-                console.log(err)
-            }).finally(() => {
-                setKategori('')
-            })
-    }, [])
-
-    //handle sport true ,maka useEffect akan mengambil data dari sport
-    const handleSport = () => {
-        setKategori('sport')
-    }
-    //handle business true ,maka useEffect akan mengambil data dari business
-    const handleBusiness = () => {
-        setKategori('business')
-    }
-    //handle entertainment true ,maka useEffect akan mengambil data dari entertainment
-    const handleEntertainment = () => {
-        setKategori('entertainment')
-    }
-    //handle health true ,maka useEffect akan mengambil data dari health
-    const handleHealth = () => {
-        setKategori('health')
-    }
-    //handle technology true ,maka useEffect akan mengambil data dari technology
-    const handleTechnology = () => {
-        setKategori('technology')
-    }
-    //handle headline true ,maka useEffect akan mengambil data dari headline
-    const handleHeadline = () => {
-        setKategori('headline')
-    }
-
-
-
-    return(
-    
-            <div className="container" >
+        <div className="container" >
             {/* pencarian */}
             {/* <div className="row">
                 <div className="col-10 mx-auto">
@@ -143,22 +47,22 @@ const Konten = () => {
             <div className="container text-center mt-5 ">
                 <Nav className="text-white tabsnya" fill variant="tabs" defaultActiveKey="/home" style={{ backgroundImage: 'linear-gradient(to right,#0E0C58, #0C3458)' }}>
                     <Nav.Item >
-                        <Nav.Link className="text-primary Ini" href="/home" onClick={handleHeadline}>HeadLine News</Nav.Link>
+                        <Nav.Link className="text-primary Ini" href="/home" >HeadLine News</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link className="text-primary Ini" eventKey="sport" onClick={handleSport}>Aksi & Olahraga</Nav.Link>
+                        <Nav.Link className="text-primary Ini" eventKey="sport" >Aksi & Olahraga</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link className="text-primary Ini" eventKey="business" onClick={handleBusiness}>Bisnis</Nav.Link>
+                        <Nav.Link className="text-primary Ini" eventKey="business" >Bisnis</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link className="text-primary Ini" eventKey="entertainment" onClick={handleEntertainment}>Hiburan</Nav.Link>
+                        <Nav.Link className="text-primary Ini" eventKey="entertainment" >Hiburan</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link className="text-primary Ini" eventKey="kesehatan" onClick={handleHealth} >Kesehatan</Nav.Link>
+                        <Nav.Link className="text-primary Ini" eventKey="kesehatan"  >Kesehatan</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link className="text-primary Ini" eventKey="technology" onClick={handleTechnology}>Teknologi</Nav.Link>
+                        <Nav.Link className="text-primary Ini" eventKey="technology" >Teknologi</Nav.Link>
                     </Nav.Item>
 
                 </Nav>
@@ -178,29 +82,24 @@ const Konten = () => {
 
 
                 <div className="row mt-5 mb-5 "  >
-                    {
-                        data.map((value) => {
-                            return (
-                                <div className="col-3" >
-                                    <div className="m-3">
-                                        <div className="Card p-4 " style={{ height: '750px', width: '300px', border: '15px solid #07A8CB' }}>
-                                            <img src={value.urlToImage} className="card-img-top mb-4 ml-3" style={{ height: '200px', width: '220px' }} alt="..." />
-                                            <div className="Card-Body" >
-                                                <h5 className="Card-Title text-warning " >{value.title}</h5>
-                                                <h6 className="mt-2 mb-2 Card-Subtitle text-primary">{value.publishedAt}</h6>
-                                                <p className="Card-Text text-white" >
-                                                    {value.description}
-                                                </p>
-                                                <a className="btn btn-primary" href={value.url} target="_blank" rel="noopener noreferrer">Read More</a>
-                                            </div>
-                                        </div>
-
+                    {this.state.konten.map((item, index) => {
+                        return (
+                            <div className="col-md-4" key={index}>
+                                <div className="card">
+                                    <img className="card-img-top" src={item.image} alt="Card image cap" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{item.title}</h5>
+                                        <p className="card-text">{item.description}</p>
+                                        <a href={item.url} className="btn btn-primary">Read More</a>
                                     </div>
-
                                 </div>
-                            )
-                        })
+                            </div>
+                        )
+                        
                     }
+
+                    )}
+                        
                 </div>
 
             </div>
