@@ -8,6 +8,7 @@ import axios from "axios"
 
 
 import Nav from 'react-bootstrap/Nav'
+import Form from 'react-bootstrap/Form'
 
 
 
@@ -158,6 +159,29 @@ const Konten = () => {
     return (
 
         <div className="container" >
+            {/* //pencarian */}
+            <div className="container mb-5 mt-5">
+                
+            <Form className="form-inline mr-sm-2">
+                                <Form.Control
+                                    type="search"
+                                    placeholder="Pencarian"
+                                    className="me-2 fa fa-search align-self-center"
+                                    aria-label="Search"
+                                    value={filter}
+                                    onChange={seacrhText.bind(this)}
+                                    style={{ width: '50%' }}
+                                    aligment="end"/>
+
+
+
+
+
+                                 
+                             </Form>
+
+
+            </div>
            
             <div className="container text-center mt-5 ">
                 <Nav className="text-white tabsnya" fill variant="tabs" defaultActiveKey="/home" style={{ backgroundImage: 'linear-gradient(to right,#0E0C58, #0C3458)' }}>
@@ -183,13 +207,8 @@ const Konten = () => {
                 </Nav>
 
             </div>
-            {/* //pencarian */}
-            {/* <div className="mb-3 mt-2 col-4 mx-auto">
-                                                
-                <input type="text" className="form-control" placeholder="Search" value={filter} onChange={seacrhText.bind(this)} />
-
-            </div> */}
-
+            
+            
 
 
 

@@ -70,7 +70,7 @@ const Navbarnya = () => {
                         </Nav>
 
                         <Nav>
-                            <Search/>
+                            {/* <Search/> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
