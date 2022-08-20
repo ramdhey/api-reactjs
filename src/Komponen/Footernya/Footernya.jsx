@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const Footernya = () => {
     return (
         <div>
@@ -19,5 +20,4 @@ const Footernya = () => {
         </div>
     )
 }
-
-export default Footernya;
+export default Footernya 

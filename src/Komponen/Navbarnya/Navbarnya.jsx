@@ -10,8 +10,9 @@ import gps from './Image/gps.png';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import Konten from '../Konten/Konten';
+import Search from '../Search/Search';
+
+
 
 
 const Navbarnya = () => {
@@ -69,21 +70,7 @@ const Navbarnya = () => {
                         </Nav>
 
                         <Nav>
-                            <Form className="d-flex"  >
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Pencarian"
-                                    className="me-2 fa fa-search"
-                                    aria-label="Search"
-
-                                />
-
-
-
-
-
-                                {/* <Button className="findHandler" >Cari</Button> */}
-                            </Form>
+                            <Search/>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

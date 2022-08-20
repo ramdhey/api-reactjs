@@ -10,6 +10,7 @@ import axios from "axios"
 import Nav from 'react-bootstrap/Nav'
 
 
+
 const Konten = () => {
     const [data, setData] = useState([])
     const [kategori, setKategori] = useState('')
@@ -33,12 +34,12 @@ const Konten = () => {
 
     //import dropdown Kateogri Berita dari 
     
-    const HEADLINES_NEWS = "https://gnews.io/api/v4/top-headlines?country=us&token=baed3bfb433758a85429ed34e72d5417"
-    const SPORTS_NEWS = "https://gnews.io/api/v4/search?q=sports&country=us&token=baed3bfb433758a85429ed34e72d5417"
-    const BUSINESS_NEWS = "https://gnews.io/api/v4/search?q=business&country=us&token=baed3bfb433758a85429ed34e72d5417"
-    const ENTERTAINMENT_NEWS = "https://gnews.io/api/v4/search?q=entertainment&country=us&token=baed3bfb433758a85429ed34e72d5417"
-    const HEALTH_NEWS = "https://gnews.io/api/v4/search?q=health&country=us&token=baed3bfb433758a85429ed34e72d5417"
-    const TECHNOLOGY_NEWS = "https://gnews.io/api/v4/search?q=technology&country=us&token=baed3bfb433758a85429ed34e72d5417"
+    const HEADLINES_NEWS = "https://gnews.io/api/v4/top-headlines?country=us&token=37979b3740b6271e352d62ca97e959c0"
+    const SPORTS_NEWS = "https://gnews.io/api/v4/search?q=sports&country=us&token=37979b3740b6271e352d62ca97e959c0"
+    const BUSINESS_NEWS = "https://gnews.io/api/v4/search?q=business&country=us&token=37979b3740b6271e352d62ca97e959c0"
+    const ENTERTAINMENT_NEWS = "https://gnews.io/api/v4/search?q=entertainment&country=us&token=37979b3740b6271e352d62ca97e959c0"
+    const HEALTH_NEWS = "https://gnews.io/api/v4/search?q=health&country=us&token=37979b3740b6271e352d62ca97e959c0"
+    const TECHNOLOGY_NEWS = "https://gnews.io/api/v4/search?q=technology&country=us&token=37979b3740b6271e352d62ca97e959c0"
     
 
 
@@ -183,10 +184,11 @@ const Konten = () => {
 
             </div>
             {/* //pencarian */}
-            <div className="mb-3 mt-2 col-4 mx-auto">
+            {/* <div className="mb-3 mt-2 col-4 mx-auto">
+                                                
                 <input type="text" className="form-control" placeholder="Search" value={filter} onChange={seacrhText.bind(this)} />
 
-            </div>
+            </div> */}
 
 
 
@@ -234,4 +236,10 @@ const Konten = () => {
     )
 }
 export default Konten
+
+// export {filter, searchText, setFilter} from './Konten'
+
+
+
+
     
