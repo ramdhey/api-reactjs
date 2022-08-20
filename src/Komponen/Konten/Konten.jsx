@@ -13,12 +13,17 @@ import Nav from 'react-bootstrap/Nav'
 const Konten = () => {
     const [data, setData] = useState([])
     const [kategori, setKategori] = useState('')
+
+    //pencarian
     const [filter, setFilter] = useState('')
 
+
+    //pencarian
     const seacrhText = (event)=>{
         setFilter(event.target.value)
     }
 
+    //pencarian
     let dataHasilCari = data.filter(item => {
         return item.title.toLowerCase().includes(filter.toLowerCase())
     } )
@@ -177,6 +182,7 @@ const Konten = () => {
                 </Nav>
 
             </div>
+            {/* //pencarian */}
             <div className="mb-3 mt-2 col-4 mx-auto">
                 <input type="text" className="form-control" placeholder="Search" value={filter} onChange={seacrhText.bind(this)} />
 
