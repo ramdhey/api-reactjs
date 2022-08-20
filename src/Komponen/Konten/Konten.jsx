@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Konten.css';
 
+
 import axios from "axios"
 
 
@@ -12,6 +13,15 @@ import Nav from 'react-bootstrap/Nav'
 const Konten = () => {
     const [data, setData] = useState([])
     const [kategori, setKategori] = useState('')
+    const [filter, setFilter] = useState('')
+
+    const seacrhText = (event)=>{
+        setFilter(event.target.value)
+    }
+
+    let dataHasilCari = data.filter(item => {
+        return item.title.toLowerCase().includes(filter.toLowerCase())
+    } )
 
    
 
@@ -142,15 +152,7 @@ const Konten = () => {
     return (
 
         <div className="container" >
-            {/* pencarian */}
-            {/* <div className="row">
-                <div className="col-10 mx-auto">
-                    <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={handleSearch} />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={handleShowAll}>Search</button>
-                    </form>
-                </div>
-            </div> */}
+           
             <div className="container text-center mt-5 ">
                 <Nav className="text-white tabsnya" fill variant="tabs" defaultActiveKey="/home" style={{ backgroundImage: 'linear-gradient(to right,#0E0C58, #0C3458)' }}>
                     <Nav.Item >
@@ -175,6 +177,10 @@ const Konten = () => {
                 </Nav>
 
             </div>
+            <div className="mb-3 mt-2 col-4 mx-auto">
+                <input type="text" className="form-control" placeholder="Search" value={filter} onChange={seacrhText.bind(this)} />
+
+            </div>
 
 
 
@@ -190,19 +196,19 @@ const Konten = () => {
 
                 <div className="row mt-5 mb-5 "  >
                     {
-                        data.map((value) => {
+                        dataHasilCari.map((item, index) => {
                             return (
-                                <div className="col-3" >
+                                <div className="col-3" key={index}>
                                     <div className="m-3">
-                                        <div className="Card p-4 cardnya" style={{ height: '750px', width: '300px', border: '15px solid #07A8CB' }}>
-                                            <img src={value.image} className="card-img-top mb-4 ml-3" style={{ height: '200px', width: '220px' }} alt="..." />
+                                        <div className="Card p-4 cardnya" style={{  height: '800px', width: '300px',border: '15px solid #07A8CB' }}>
+                                            <img src={item.image} className="card-img-top mb-4 ml-3" style={{ height: '200px', width: '220px' }} alt="..." />
                                             <div className="Card-Body" >
-                                                <h5 className="Card-Title text-warning " >{value.title}</h5>
-                                                <h6 className="mt-2 mb-2 Card-Subtitle text-primary">{value.publishedAt}</h6>
+                                                <h5 className="Card-Title text-warning " >{item.title}</h5>
+                                                <h6 className="mt-2 mb-2 Card-Subtitle text-primary">{item.publishedAt}</h6>
                                                 <p className="Card-Text text-white" >
-                                                    {value.description}
+                                                    {item.description}
                                                 </p>
-                                                <a className="btn btn-primary" href={value.url} target="_blank" rel="noopener noreferrer">Read More</a>
+                                                <a className="btn btn-primary" href={item.url} target="_blank" rel="noopener noreferrer">Read More</a>
                                             </div>
                                         </div>
 
